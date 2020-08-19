@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-<beans>
-	<bean id="triangle" class="com.example.spring.Triangle" >
+<beans default-init-method="initialize" default-destroy-method="cleanUp">
+	<bean id="parenttriangle" class="com.example.spring.Triangle" abstract="true">
 	<property name="points">
 	<list>
 		<ref bean="zeroPoint"/>
+	</list>
+	</property>
+	</bean>
+	<bean id="triangle" class="com.example.spring.Triangle" parent="parenttriangle">
+	<property name="points">
+	<list merge="true">
 		<ref bean="point2"/>
 		<ref bean="point3"/>
 	</list>
 	</property>
 	</bean>
-	<bean id="rectangle" class="com.example.spring.Rectangle" autowire="byName">
+	<bean id="rectangle" class="com.example.spring.Rectangle" scope="singleton" autowire="byName" abstract="true">
 	</bean>
 	<bean id="zeroPoint" class="com.example.spring.Point">
 	<property name="x" value="0"/>

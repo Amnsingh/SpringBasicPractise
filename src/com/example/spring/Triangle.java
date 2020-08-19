@@ -2,7 +2,10 @@ package com.example.spring;
 
 import java.util.List;
 
-public class Triangle {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Triangle implements Shape,InitializingBean,DisposableBean {
 	
 	List<Point> points;
 	public List<Point> getPoints() {
@@ -17,6 +20,26 @@ public class Triangle {
 		for(Point point : points) {
 		System.out.println("Point  = ("+point.getX()+","+point.getY()+")");
 		}
+	}
+
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("InitializingBean method called");
+		
+	}
+
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("DisposableBean method called");
+		
+	}
+	public void initialize() {
+		System.out.println("Initialize method called");
+	}
+	public void cleanUp() {
+		System.out.println("cleanUp method called");
 	}
 
 }

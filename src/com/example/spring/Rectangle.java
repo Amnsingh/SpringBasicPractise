@@ -1,11 +1,17 @@
 package com.example.spring;
 
-public class Rectangle {
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Rectangle implements ApplicationContextAware,BeanNameAware {
 
 	private Point zeroPoint;
 	private Point point2;
 	private Point point3;
 	private Point point4;
+	private ApplicationContext context=null;
 	public Point getZeroPoint() {
 		return zeroPoint;
 	}
@@ -36,4 +42,14 @@ public class Rectangle {
 		System.out.println("Point C =("+getPoint3().getX()+","+getPoint3().getY()+")");
 		System.out.println("Point D =("+getPoint4().getX()+","+getPoint4().getY()+")");
 	}
+	@Override
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
+		this.context=context;
+	}
+	@Override
+	public void setBeanName(String beanName) {
+		System.out.println(beanName);
+		
+	}
+	
 }
