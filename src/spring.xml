@@ -35,5 +35,6 @@
 		<property name="x" value="15"/>
 		<property name="y" value="25"/>
 	</bean>
+	<bean class="com.example.spring.BeanFactoryPost"/>
 	<alias name="triangle" alias="triangle-alias"/>
 </beans>
