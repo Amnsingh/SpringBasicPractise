@@ -5,7 +5,7 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Rectangle implements ApplicationContextAware,BeanNameAware {
+public class Rectangle implements ApplicationContextAware,BeanNameAware,Shape {
 
 	private Point zeroPoint;
 	private Point point2;

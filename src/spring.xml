@@ -2,31 +2,31 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans default-init-method="initialize" default-destroy-method="cleanUp">
-	<bean id="parenttriangle" class="com.example.spring.Triangle" abstract="true">
-	<property name="points">
+ 	<bean id="parenttriangle" class="com.example.spring.Triangle" abstract="true">
+ 	<property name="points">
 	<list>
 		<ref bean="zeroPoint"/>
 	</list>
-	</property>
+	</property>  
 	</bean>
 	<bean id="triangle" class="com.example.spring.Triangle" parent="parenttriangle">
-	<property name="points">
-	<list merge="true">
+ 	<property name="points">
+		<list merge="true">
 		<ref bean="point2"/>
 		<ref bean="point3"/>
 	</list>
 	</property>
+	</bean> 
+	<bean id="rectangle" class="com.example.spring.Rectangle" scope="singleton" autowire="byName">
 	</bean>
-	<bean id="rectangle" class="com.example.spring.Rectangle" scope="singleton" autowire="byName" abstract="true">
-	</bean>
-	<bean id="zeroPoint" class="com.example.spring.Point">
-	<property name="x" value="0"/>
-	<property name="y" value="0"/>
+	<bean id="center" class="com.example.spring.Point">
+	  <property name="x" value="0"/> 
+	<property name="y" value="0"/> 
 	</bean>
 	<bean id="point2" class="com.example.spring.Point">
 		<property name="x" value="-20"/>
 		<property name="y" value="0"/>
-	</bean>
+	</bean>            
 	<bean id="point3" class="com.example.spring.Point">
 		<property name="x" value="20"/>
 		<property name="y" value="0"/>
@@ -34,6 +34,9 @@
 	<bean id="point4" class="com.example.spring.Point">
 		<property name="x" value="15"/>
 		<property name="y" value="25"/>
+	</bean>
+	<bean id="circle" class="com.example.spring.Circle">
+		<!--  <property name="center" ref="point4"></property> -->
 	</bean>
 	<bean class="com.example.spring.BeanFactoryPost"/>
 	<alias name="triangle" alias="triangle-alias"/>

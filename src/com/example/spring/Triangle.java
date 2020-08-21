@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Required;
 
 public class Triangle implements Shape,InitializingBean,DisposableBean {
 	
@@ -11,7 +12,6 @@ public class Triangle implements Shape,InitializingBean,DisposableBean {
 	public List<Point> getPoints() {
 		return points;
 	}
-
 
 	public void setPoints(List<Point> points) {
 		this.points = points;
