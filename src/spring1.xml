@@ -10,4 +10,11 @@
         		<property name="y" value="38"></property>
         	</bean>
         	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+        	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        	<property name="basenames">
+        	<list>
+        		<value>mymessages</value>
+        	</list>
+        	</property>
+        	</bean>
         </beans>
